@@ -1,0 +1,15 @@
+# Use an official Python base image
+FROM python:3.10
+
+# Set working directory
+WORKDIR /app
+
+# Copy files into the container
+COPY mnist_model.h5 .
+COPY app.py .
+
+# Install necessary packages
+RUN pip install tensorflow numpy
+
+# Run the Python app
+CMD ["python", "app.py"]
