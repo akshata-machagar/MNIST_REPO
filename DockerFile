@@ -1,15 +1,11 @@
-# Use an official Python base image
-FROM python:3.10
+FROM python:3.8
 
-# Set working directory
 WORKDIR /app
 
-# Copy files into the container
-COPY mnist_model.h5 .
-COPY app.py .
+COPY . .
 
-# Install necessary packages
-RUN pip install tensorflow numpy
+RUN pip install tensorflow flask pillow
 
-# Run the Python app
+EXPOSE 5000
+
 CMD ["python", "app.py"]
